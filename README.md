@@ -5,7 +5,7 @@
 💻 Learning HTML & CSS  
 📁 This repository is my *online portfolio* for school projects  
 
----6
+
 
 ## 📌 About This Portfolio
 This repository contains my:
@@ -24,5 +24,5 @@ Feel free to explore my work! 😊
 
 ---
 
-## 📫 Contact
-Coming soon...
+## Outputs
+Midterms: file:///C:/Users/psau/Desktop/VS%20Code%20WS101%20(Nate)/HTML/Midterms.html#
