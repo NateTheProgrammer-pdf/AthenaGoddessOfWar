@@ -24,5 +24,3 @@ Feel free to explore my work! 😊
 
 ---
 
-## Outputs
-Midterms: file:///C:/Users/psau/Desktop/VS%20Code%20WS101%20(Nate)/HTML/Midterms.html#
