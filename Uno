@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style
+<title>Project 1</title>
+</head><body><h1>Project 1</h1>
+<h2>Code Snapshot</h2>
+<img src="codesnap1.png" width="500"><h2>Sample Output</h2>
+<img src="output1.png" width="500"><br><br>
+
+<a href="index.html">Back to Home</a>
+
+</body></html>
