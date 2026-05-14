@@ -4,42 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My HTML & CSS Projects</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0f0f0f;
-      --surface: #171717;
-      --border: #2a2a2a;
-      --border-hover: #444;
-      --text: #f0ede8;
-      --muted: #666;
-      --accent: #c8f060;
-      --accent-dim: rgba(200, 240, 96, 0.08);
-      --finals: #f0a060;
-      --finals-dim: rgba(240, 160, 96, 0.08);
+      --bg: #fffdf7;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --muted: #888;
+      --border: #e8e4d9;
+
+      --c1: #ff6b6b; /* coral red */
+      --c2: #ffd93d; /* sunny yellow */
+      --c3: #6bcb77; /* mint green */
+      --c4: #4d96ff; /* sky blue */
+      --c5: #c77dff; /* lavender */
+      --c6: #ff9f1c; /* orange */
+
+      --f1: #3a86ff; /* finals blue */
+      --f2: #ff006e; /* finals pink */
+      --f3: #8338ec; /* finals purple */
     }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Syne', sans-serif;
       min-height: 100vh;
-      padding: 0;
       overflow-x: hidden;
     }
 
-    /* Grid background */
+    /* Dotted bg */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 48px 48px;
-      opacity: 0.4;
+      background-image: radial-gradient(circle, #ccc 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.35;
       pointer-events: none;
       z-index: 0;
     }
@@ -47,182 +50,202 @@
     .wrapper {
       position: relative;
       z-index: 1;
-      max-width: 780px;
+      max-width: 820px;
       margin: 0 auto;
-      padding: 80px 32px 80px;
+      padding: 72px 32px 100px;
     }
 
-    /* Header */
+    /* ── Header ── */
     .header {
-      margin-bottom: 64px;
-      animation: fadeUp 0.6s ease both;
+      margin-bottom: 72px;
+      animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
     }
 
     .eyebrow {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .eyebrow::after {
-      content: '';
-      display: block;
-      height: 1px;
-      width: 48px;
-      background: var(--accent);
-      opacity: 0.5;
+      color: var(--muted);
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      font-size: clamp(32px, 5vw, 52px);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      font-size: clamp(38px, 6vw, 64px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
       color: var(--text);
-      margin-bottom: 16px;
+      margin-bottom: 8px;
     }
 
-    h1 span {
-      font-weight: 500;
+    .h1-accent {
+      display: inline-block;
+      background: var(--c2);
+      padding: 0 10px 4px;
+      border-radius: 6px;
+      transform: rotate(-1deg);
+      position: relative;
     }
 
     .header-sub {
       font-size: 14px;
       color: var(--muted);
-      font-weight: 300;
+      font-weight: 400;
+      margin-top: 14px;
+      font-family: 'DM Mono', monospace;
     }
 
-    /* Section label */
+    /* ── Section label ── */
     .section-label {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 14px;
-      margin-top: 48px;
-    }
-
-    .section-label:first-of-type {
-      margin-top: 0;
-    }
-
-    /* Grid */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 16px;
+      margin-top: 56px;
+      display: flex;
+      align-items: center;
       gap: 10px;
     }
 
-    .grid-finals {
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 360px;
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
     }
 
-    /* Cards */
+    .section-label:first-of-type { margin-top: 0; }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .grid-finals {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* ── Cards ── */
     .card {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      padding: 20px;
+      gap: 10px;
+      padding: 22px 20px 18px;
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
+      border: 2px solid var(--text);
+      border-radius: 14px;
       text-decoration: none;
       color: var(--text);
       position: relative;
       overflow: hidden;
-      transition: border-color 0.2s, background 0.2s, transform 0.2s;
-      animation: fadeUp 0.5s ease both;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--accent-dim);
-      opacity: 0;
-      transition: opacity 0.2s;
+      transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s ease;
+      box-shadow: 4px 4px 0px var(--text);
+      animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
     }
 
     .card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
+      transform: translate(-3px, -3px);
+      box-shadow: 7px 7px 0px var(--text);
     }
 
-    .card:hover::before { opacity: 1; }
+    .card:active {
+      transform: translate(1px, 1px);
+      box-shadow: 2px 2px 0px var(--text);
+    }
 
-    .card.finals::before { background: var(--finals-dim); }
-    .card.finals:hover { border-color: var(--finals); }
-    .card.finals .card-num { color: var(--finals); }
-    .card.finals .card-dot { background: var(--finals); }
+    /* Color stripe top */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: var(--card-color, #ccc);
+      border-radius: 12px 12px 0 0;
+    }
 
     .card-num {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.06em;
+      color: var(--muted);
+      letter-spacing: 0.08em;
     }
 
     .card-title {
       font-size: 15px;
-      font-weight: 500;
+      font-weight: 700;
       color: var(--text);
       line-height: 1.3;
+      flex: 1;
     }
 
-    .card-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin-top: auto;
-      opacity: 0.6;
-      transition: opacity 0.2s;
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 4px;
     }
 
-    .card:hover .card-dot { opacity: 1; }
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 99px;
+      background: var(--card-color-dim, #f0f0f0);
+      color: var(--card-color-text, #555);
+      font-weight: 500;
+      border: 1px solid var(--card-color-border, #ddd);
+    }
 
-    /* Corner arrow */
     .card-arrow {
       position: absolute;
-      top: 16px;
-      right: 16px;
-      font-size: 14px;
-      color: var(--muted);
+      top: 14px;
+      right: 14px;
+      font-size: 16px;
       opacity: 0;
-      transform: translate(-4px, 4px);
-      transition: opacity 0.2s, transform 0.2s;
+      transform: translate(-3px, 3px);
+      transition: opacity 0.15s, transform 0.15s;
     }
 
     .card:hover .card-arrow {
       opacity: 1;
-      transform: translate(0, 0);
+      transform: translate(0,0);
     }
 
-    /* Footer */
+    /* Finals badge */
+    .finals-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 99px;
+      background: var(--card-color-dim);
+      color: var(--card-color-text);
+      border: 1px solid var(--card-color-border);
+      align-self: flex-start;
+      margin-bottom: 2px;
+    }
+
+    /* ── Footer ── */
     .footer {
       margin-top: 80px;
       padding-top: 24px;
-      border-top: 1px solid var(--border);
+      border-top: 2px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      animation: fadeUp 0.6s 0.4s ease both;
+      animation: popIn 0.5s 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
     }
 
     .footer-text {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
       color: var(--muted);
-      letter-spacing: 0.06em;
     }
 
     .count {
@@ -231,11 +254,15 @@
       color: var(--muted);
     }
 
-    .count span { color: var(--accent); }
+    .count strong {
+      color: var(--text);
+      font-weight: 700;
+    }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
+    /* ── Animations ── */
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.92) translateY(12px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
     }
 
     .card:nth-child(1) { animation-delay: 0.05s; }
@@ -245,10 +272,11 @@
     .card:nth-child(5) { animation-delay: 0.25s; }
     .card:nth-child(6) { animation-delay: 0.30s; }
 
-    @media (max-width: 560px) {
-      .wrapper { padding: 48px 20px; }
+    /* ── Responsive ── */
+    @media (max-width: 580px) {
+      .wrapper { padding: 48px 18px 72px; }
       .grid { grid-template-columns: repeat(2, 1fr); }
-      .grid-finals { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+      .grid-finals { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 360px) {
@@ -260,73 +288,126 @@
   <div class="wrapper">
 
     <header class="header">
-      <div class="eyebrow">Portfolio</div>
-      <h1>HTML & CSS<br><span>Projects</span></h1>
-      <p class="header-sub">Click any project to open it</p>
+      <div class="eyebrow">Portfolio · 2026</div>
+      <h1>HTML &amp; CSS<br><span class="h1-accent">Projects</span></h1>
+      <p class="header-sub">↓ click any project to open it</p>
     </header>
 
     <p class="section-label">Core projects</p>
     <div class="grid">
-      <a class="card" href="uno.html">
+
+      <a class="card" href="uno.html" style="--card-color:#ff6b6b;--card-color-dim:#fff0f0;--card-color-text:#c0392b;--card-color-border:#ffc8c8;">
         <span class="card-num">01</span>
-        <span class="card-title">Project 1</span>
-        <span class="card-dot"></span>
+        <span class="card-title">Resume Writing using HTML</span>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">Semantics</span>
+          <span class="tag">Typography</span>
+        </div>
         <span class="card-arrow">↗</span>
       </a>
-      <a class="card" href="dos.html">
+
+      <a class="card" href="dos.html" style="--card-color:#ffd93d;--card-color-dim:#fffbe0;--card-color-text:#a07800;--card-color-border:#ffe98a;">
         <span class="card-num">02</span>
-        <span class="card-title">Project 2</span>
-        <span class="card-dot"></span>
+        <span class="card-title">HTML Lists and Tables</span>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">Lists</span>
+          <span class="tag">Tables</span>
+        </div>
         <span class="card-arrow">↗</span>
       </a>
-      <a class="card" href="tres.html">
+
+      <a class="card" href="tres.html" style="--card-color:#6bcb77;--card-color-dim:#edfaef;--card-color-text:#1e7c2b;--card-color-border:#a8e8b0;">
         <span class="card-num">03</span>
-        <span class="card-title">Project 3</span>
-        <span class="card-dot"></span>
+        <span class="card-title">HTML Forms</span>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">Forms</span>
+          <span class="tag">Input</span>
+        </div>
         <span class="card-arrow">↗</span>
       </a>
-      <a class="card" href="cuatro.html">
+
+      <a class="card" href="cuatro.html" style="--card-color:#4d96ff;--card-color-dim:#edf4ff;--card-color-text:#1a5dbf;--card-color-border:#a3c8ff;">
         <span class="card-num">04</span>
-        <span class="card-title">Project 4</span>
-        <span class="card-dot"></span>
+        <span class="card-title">Image Maps</span>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">Images</span>
+          <span class="tag">Coordinates</span>
+        </div>
         <span class="card-arrow">↗</span>
       </a>
-      <a class="card" href="cinco.html">
+
+      <a class="card" href="cinco.html" style="--card-color:#c77dff;--card-color-dim:#f7edff;--card-color-text:#7b2fbf;--card-color-border:#ddb3ff;">
         <span class="card-num">05</span>
-        <span class="card-title">Project 5</span>
-        <span class="card-dot"></span>
+        <span class="card-title">Applying CSS to your Resume</span>
+        <div class="tags">
+          <span class="tag">CSS</span>
+          <span class="tag">Styling</span>
+          <span class="tag">Typography</span>
+        </div>
         <span class="card-arrow">↗</span>
       </a>
-      <a class="card" href="sais.html">
+
+      <a class="card" href="sais.html" style="--card-color:#ff9f1c;--card-color-dim:#fff4e0;--card-color-text:#b35a00;--card-color-border:#ffcc80;">
         <span class="card-num">06</span>
-        <span class="card-title">Project 6</span>
-        <span class="card-dot"></span>
+        <span class="card-title">HTML Layout Using Divs and Semantic Elements</span>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Divs</span>
+          <span class="tag">Semantics</span>
+        </div>
         <span class="card-arrow">↗</span>
       </a>
+
     </div>
 
     <p class="section-label">Finals</p>
     <div class="grid grid-finals">
-      <a class="card finals" href="finalstask1.html">
-        <span class="card-num">F1</span>
-        <span class="card-title">Finals Task 1</span>
-        <span class="card-dot"></span>
+
+      <a class="card" href="finalstask1.html" style="--card-color:#3a86ff;--card-color-dim:#edf3ff;--card-color-text:#1a5dbf;--card-color-border:#99bfff;">
+        <span class="finals-badge">Finals · F1</span>
+        <span class="card-title">Responsive Layout using Flex</span>
+        <div class="tags">
+          <span class="tag">CSS</span>
+          <span class="tag">Flexbox</span>
+          <span class="tag">Responsive</span>
+        </div>
         <span class="card-arrow">↗</span>
       </a>
-      <a class="card finals" href="Finalstask2.html">
-        <span class="card-num">F2</span>
-        <span class="card-title">Finals Task 2</span>
-        <span class="card-dot"></span>
+
+      <a class="card" href="Finalstask2.html" style="--card-color:#ff006e;--card-color-dim:#ffecf4;--card-color-text:#b3004d;--card-color-border:#ff80b7;">
+        <span class="finals-badge">Finals · F2</span>
+        <span class="card-title">Using CSS Positions</span>
+        <div class="tags">
+          <span class="tag">CSS</span>
+          <span class="tag">Positioning</span>
+          <span class="tag">Layout</span>
+        </div>
         <span class="card-arrow">↗</span>
       </a>
+
+      <a class="card" href="finalstask3.html" style="--card-color:#8338ec;--card-color-dim:#f3eaff;--card-color-text:#5a1db3;--card-color-border:#c499f5;">
+        <span class="finals-badge">Finals · F3</span>
+        <span class="card-title">Integrating Bootstrap in your Web Design Workflow</span>
+        <div class="tags">
+          <span class="tag">CSS</span>
+          <span class="tag">Bootstrap</span>
+          <span class="tag">Framework</span>
+        </div>
+        <span class="card-arrow">↗</span>
+      </a>
+
     </div>
 
     <footer class="footer">
-      <span class="footer-text">HTML & CSS · 2026</span>
-      <span class="count"><span>8</span> projects total</span>
+      <span class="footer-text">HTML &amp; CSS · 2026</span>
+      <span class="count"><strong>9</strong> projects total</span>
     </footer>
 
   </div>
 </body>
 </html>
-
